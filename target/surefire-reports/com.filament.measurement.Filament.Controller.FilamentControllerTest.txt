@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.filament.measurement.Filament.Controller.FilamentControllerTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.698 s - in com.filament.measurement.Filament.Controller.FilamentControllerTest

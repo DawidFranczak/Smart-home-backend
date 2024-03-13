@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.filament.measurement.Filament.Controller.FilamentColorControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.162 s - in com.filament.measurement.Filament.Controller.FilamentColorControllerTest

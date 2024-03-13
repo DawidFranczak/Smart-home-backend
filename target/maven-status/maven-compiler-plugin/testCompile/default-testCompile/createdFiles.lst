@@ -1,0 +1,6 @@
+com/filament/measurement/MeasurementApplicationTests.class
+com/filament/measurement/Authentication/Repository/ElectricityTariffRepositoryTest.class
+com/filament/measurement/Authentication/Service/UserServiceTest.class
+com/filament/measurement/Authentication/Repository/UserRepositoryTest.class
+com/filament/measurement/Authentication/Repository/CompanyRepositoryTest.class
+com/filament/measurement/Authentication/Repository/TokenRepositoryTest.class

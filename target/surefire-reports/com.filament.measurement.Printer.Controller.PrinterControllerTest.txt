@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.filament.measurement.Printer.Controller.PrinterControllerTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.622 s - in com.filament.measurement.Printer.Controller.PrinterControllerTest

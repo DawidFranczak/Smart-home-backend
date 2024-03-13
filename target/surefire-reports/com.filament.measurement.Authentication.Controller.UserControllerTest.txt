@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.filament.measurement.Authentication.Controller.UserControllerTest
+-------------------------------------------------------------------------------
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.313 s - in com.filament.measurement.Authentication.Controller.UserControllerTest

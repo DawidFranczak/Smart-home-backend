@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.filament.measurement.Authentication.Controller.CompanyControllerTest
+-------------------------------------------------------------------------------
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.748 s - in com.filament.measurement.Authentication.Controller.CompanyControllerTest
