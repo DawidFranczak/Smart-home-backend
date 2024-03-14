@@ -1,6 +1,7 @@
 package com.smart_home.Authentication.Controller;
 
 import com.smart_home.Authentication.DTO.AuthenticationTokenDTO;
+import com.smart_home.Authentication.Request.UserLoginRequest;
 import com.smart_home.Authentication.Request.UserRegistrationRequest;
 import com.smart_home.Authentication.Service.UserService;
 import jakarta.validation.Valid;
@@ -28,10 +29,10 @@ public class UserController {
 //    public ResponseEntity<AuthenticationTokenDTO> loginUserViaPassword(@RequestBody UserLoginRequest form){
 //        return ResponseEntity.status(HttpStatus.OK).body(service.userLoginViaPassword(form));
 //    }
-//    @PostMapping("login/pin/")
-//    public ResponseEntity<AuthenticationTokenDTO> loginUserViaPin(@RequestBody UserLoginRequest form){
-//        return ResponseEntity.status(HttpStatus.OK).body(service.userLoginViaPin(form));
-//    }
+    @PostMapping("login/pin/")
+    public ResponseEntity<AuthenticationTokenDTO> loginUserViaPin(@RequestBody UserLoginRequest form){
+        return ResponseEntity.status(HttpStatus.OK).body(service.userLoginViaPin(form));
+    }
 //
 //    @DeleteMapping("logout/")
 //    public ResponseEntity<Void> logoutUser (HttpServletRequest request) {

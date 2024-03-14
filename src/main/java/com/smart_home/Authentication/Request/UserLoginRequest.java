@@ -7,5 +7,5 @@ public class UserLoginRequest {
 
     private String email;
     private String password;
-    private Integer pin;
+    private String pin;
 }
