@@ -11,12 +11,15 @@ import com.smart_home.Authentication.Repository.UserRepository;
 import com.smart_home.Authentication.Request.UserLoginRequest;
 import com.smart_home.Authentication.Request.UserRegistrationRequest;
 import com.smart_home.Exception.CustomValidationException;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@EnableScheduling
 public class UserService {
 
     private final PasswordEncoder passwordEncoder;
@@ -105,4 +108,9 @@ public class UserService {
         if(user.isEmpty()) throw new CustomValidationException("Login incorrect");
         return user.get();
     }
+
+//    @Scheduled(fixedDelay = 1000)
+//    public void test(){
+//        System.out.println("TEST");
+//    }
 }

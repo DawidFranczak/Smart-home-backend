@@ -1,6 +1,7 @@
 package com.smart_home.Authentication.Model;
 
 import com.smart_home.Authentication.Permission.Role;
+import com.smart_home.Device.Model.Device;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -38,6 +39,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
     private List<Token> tokens;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
+    private List<Device> devices;
 
     public <E> User(String testuser, String password, ArrayList<E> es) {
     }
