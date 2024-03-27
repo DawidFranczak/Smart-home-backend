@@ -9,6 +9,7 @@ import java.net.InetAddress;
 
 @Entity
 @Setter
+@Getter
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Device {
     @Id

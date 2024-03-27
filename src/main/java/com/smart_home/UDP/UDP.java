@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketException;
 
 @Service
 public class UDP {
@@ -19,14 +20,13 @@ public class UDP {
      * @return Diagram Packet entity with microcontroller response.
      * @throws IOException
      */
-    public DatagramPacket send(String messageToSend, int port, String ip, int timeout) throws IOException {
+    public DatagramPacket send(String messageToSend, int port, InetAddress ip, int timeout) throws IOException {
         DatagramSocket socket = new DatagramSocket();
         socket.setSoTimeout(timeout);
         byte[] sendData = messageToSend.getBytes();
         byte[] receiveData = new byte[1024];
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-        InetAddress destinationIP = InetAddress.getByName(ip);
-        DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, destinationIP, port);
+        DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, ip, port);
         socket.send(sendPacket);
         socket.receive(receivePacket);
         socket.close();
@@ -44,7 +44,7 @@ public class UDP {
     public DatagramPacket scanLocalHost(String message,int port,int timeoutInMs,String exceptionMessage) {
         for (int i = 2; i < 254; i++) {
             try {
-                return send(message, port, "192.168.0." + i, timeoutInMs);
+                return send(message, port, InetAddress.getByName("192.168.0." + i), timeoutInMs);
             } catch (IOException e) {
                 continue;
             }
