@@ -1,4 +1,4 @@
-package com.smart_home.Device.DTO;
+package com.smart_home.Aquarium.DTO;
 
 public record DeviceAquariumDTO(
         Long id,

@@ -9,12 +9,6 @@ import lombok.Data;
 @Data
 @PasswordMatch
 public class UserRegistrationRequest {
-    @NotBlank(message = "First name can't be blank")
-    private String firstName;
-
-    @NotBlank(message = "Last name can't be blank")
-    private String lastName;
-
     @NotBlank(message = "Email can't be blank")
     @Email(message = "Valid email")
     @UniqueEmail

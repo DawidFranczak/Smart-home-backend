@@ -49,8 +49,6 @@ public class UserService {
      */
     public void userRegistration(UserRegistrationRequest form) {
         User user = User.builder()
-                .firstName(form.getFirstName())
-                .lastName(form.getLastName())
                 .email(form.getEmail())
                 .role(Role.USER)
                 .password(passwordEncoder.encode(form.getPassword()))

@@ -1,15 +1,13 @@
-package com.smart_home.Device.Repository;
+package com.smart_home.Aquarium.Request.Repository;
 
 import com.smart_home.Authentication.Model.User;
 import com.smart_home.Device.Enum.DeviceType;
 import com.smart_home.Device.Model.Device;
-import com.smart_home.Device.Model.DeviceAquarium;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface DeviceRepository extends JpaRepository<Device, Long> {

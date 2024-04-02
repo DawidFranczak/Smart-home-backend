@@ -1,4 +1,4 @@
-package com.smart_home.Device.Repository;
+package com.smart_home.Aquarium.Request.Repository;
 
 import com.smart_home.Device.Model.DeviceSettings;
 import org.springframework.data.jpa.repository.JpaRepository;

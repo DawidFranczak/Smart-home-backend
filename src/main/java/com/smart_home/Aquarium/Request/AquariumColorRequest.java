@@ -1,4 +1,4 @@
-package com.smart_home.Device.Request;
+package com.smart_home.Aquarium.Request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

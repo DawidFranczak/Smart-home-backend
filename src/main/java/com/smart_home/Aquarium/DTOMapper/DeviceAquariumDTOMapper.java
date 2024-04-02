@@ -1,7 +1,7 @@
-package com.smart_home.Device.DTOMapper;
+package com.smart_home.Aquarium.DTOMapper;
 
-import com.smart_home.Device.DTO.DeviceAquariumDTO;
-import com.smart_home.Device.Model.DeviceAquarium;
+import com.smart_home.Aquarium.DTO.DeviceAquariumDTO;
+import com.smart_home.Aquarium.Model.DeviceAquarium;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Function;

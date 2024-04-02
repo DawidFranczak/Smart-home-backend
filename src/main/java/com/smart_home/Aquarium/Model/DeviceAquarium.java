@@ -1,5 +1,6 @@
-package com.smart_home.Device.Model;
+package com.smart_home.Aquarium.Model;
 
+import com.smart_home.Device.Model.Device;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

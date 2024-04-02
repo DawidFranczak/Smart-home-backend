@@ -1,7 +1,7 @@
-package com.smart_home.Device.Repository;
+package com.smart_home.Aquarium.Repository;
 
 import com.smart_home.Authentication.Model.User;
-import com.smart_home.Device.Model.DeviceAquarium;
+import com.smart_home.Aquarium.Model.DeviceAquarium;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
