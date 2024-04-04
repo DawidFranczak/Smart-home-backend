@@ -2,7 +2,7 @@ package com.smart_home.Validation.Validator;
 
 import com.smart_home.Authentication.Service.JwtService;
 import com.smart_home.Device.Enum.DeviceType;
-import com.smart_home.Aquarium.Request.Repository.DeviceRepository;
+import com.smart_home.Device.Repository.DeviceRepository;
 import com.smart_home.Device.Request.AddDeviceRequest;
 import com.smart_home.Validation.Anotation.UniqueDeviceName;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,6 +30,6 @@ public class UniqueDeviceNameValidator implements ConstraintValidator<UniqueDevi
         String name = addDeviceRequest.getName();
         String type = addDeviceRequest.getType();
         DeviceType deviceType = DeviceType.valueOf(type.toUpperCase());
-        return deviceRepository.deviceExists(name,deviceType,jwtService.extractUser(request));
+        return !deviceRepository.deviceExists(name,deviceType,jwtService.extractUser(request));
     }
 }

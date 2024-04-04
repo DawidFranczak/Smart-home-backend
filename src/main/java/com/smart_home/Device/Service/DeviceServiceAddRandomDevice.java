@@ -6,7 +6,7 @@ import com.smart_home.Device.Enum.DeviceType;
 import com.smart_home.Aquarium.Model.DeviceAquarium;
 import com.smart_home.Device.Model.DeviceStairs;
 import com.smart_home.Aquarium.Repository.DeviceAquariumRepository;
-import com.smart_home.Aquarium.Request.Repository.DeviceStairsRepository;
+import com.smart_home.Device.Repository.DeviceStairsRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 

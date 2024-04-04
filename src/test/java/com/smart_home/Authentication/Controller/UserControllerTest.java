@@ -53,8 +53,6 @@ class UserControllerTest {
     void registrationUser_shouldRegisterNewUser() throws Exception {
         //Given
         UserRegistrationRequest userRegistrationRequest = new UserRegistrationRequest();
-        userRegistrationRequest.setFirstName("Test");
-        userRegistrationRequest.setLastName("Test2");
         userRegistrationRequest.setEmail("test2@test.com");
         userRegistrationRequest.setPassword("Password#");
         userRegistrationRequest.setPassword2("Password#");

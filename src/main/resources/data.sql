@@ -1,26 +1,26 @@
 --////////////////////////////////////////PORT//////////////////////////////
-INSERT INTO device_settings (key,value)
+INSERT INTO device_settings (settings_key,setting_value)
 SELECT 'aquariumPort','1234'
 WHERE NOT EXISTS (
-    SELECT 1 FROM device_settings WHERE key = 'aquariumPort'
+    SELECT 1 FROM device_settings WHERE settings_key = 'aquariumPort'
 );
 
-INSERT INTO device_settings (key,value)
+INSERT INTO device_settings (settings_key,setting_value)
 SELECT 'stairsPort','1234'
 WHERE NOT EXISTS (
-    SELECT 1 FROM device_settings WHERE key = 'stairsPort'
+    SELECT 1 FROM device_settings WHERE settings_key = 'stairsPort'
 );
 
 
 --////////////////////////////////////////PASSWORD////////////////////////////
-INSERT INTO device_settings (key,value)
+INSERT INTO device_settings (settings_key,setting_value)
 SELECT 'aquariumAddingPassword','aquariumPassword'
 WHERE NOT EXISTS (
-    SELECT 1 FROM device_settings WHERE key = 'aquariumAddingPassword'
+    SELECT 1 FROM device_settings WHERE settings_key = 'aquariumAddingPassword'
 );
 
-INSERT INTO device_settings (key,value)
+INSERT INTO device_settings (settings_key,setting_value)
 SELECT 'stairsAddingPassword','stairsPassword'
 WHERE NOT EXISTS (
-    SELECT 1 FROM device_settings WHERE key = 'stairsAddingPassword'
+    SELECT 1 FROM device_settings WHERE settings_key = 'stairsAddingPassword'
 );

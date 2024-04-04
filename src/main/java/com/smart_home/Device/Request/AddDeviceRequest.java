@@ -4,9 +4,8 @@ import com.smart_home.Validation.Anotation.UniqueDeviceName;
 import lombok.Data;
 
 @Data
+@UniqueDeviceName
 public class AddDeviceRequest {
-    @UniqueDeviceName
     String name;
     String type;
-
 }

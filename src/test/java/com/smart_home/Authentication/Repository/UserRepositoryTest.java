@@ -21,8 +21,6 @@ class UserRepositoryTest {
     @BeforeEach
     void setUp() {
         User user = User.builder()
-                .firstName("Tester")
-                .lastName("Tester2")
                 .email("test@test.com")
                 .password("password")
                 .pin("1234")

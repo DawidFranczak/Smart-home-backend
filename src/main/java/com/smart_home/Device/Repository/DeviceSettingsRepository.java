@@ -1,4 +1,4 @@
-package com.smart_home.Aquarium.Request.Repository;
+package com.smart_home.Device.Repository;
 
 import com.smart_home.Device.Model.DeviceSettings;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface DeviceSettingsRepository extends JpaRepository<DeviceSettings, Long> {
-    Optional<DeviceSettings> findByKey(String key);
+    Optional<DeviceSettings> findBySettingsKey(String key);
 }

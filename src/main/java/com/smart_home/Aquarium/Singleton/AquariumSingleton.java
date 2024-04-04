@@ -2,9 +2,7 @@ package com.smart_home.Aquarium.Singleton;
 
 import com.smart_home.Aquarium.Model.DeviceAquarium;
 import com.smart_home.Aquarium.Repository.DeviceAquariumRepository;
-import com.smart_home.Aquarium.Request.Repository.DeviceRepository;
 import com.smart_home.Authentication.Model.User;
-import com.smart_home.Device.Enum.DeviceType;
 import com.smart_home.Exception.NotFound404Exception;
 import com.smart_home.UDP.UDP;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -14,7 +12,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,15 +20,13 @@ public class AquariumSingleton {
 
     private final DeviceAquariumRepository deviceAquariumRepository;
     private final UDP udp;
-    private final DeviceRepository deviceRepository;
 
     private AquariumSingleton(
             DeviceAquariumRepository deviceAquariumRepository,
-            UDP udp,
-            DeviceRepository deviceRepository) {
+            UDP udp
+    ){
         this.deviceAquariumRepository = deviceAquariumRepository;
         this.udp = udp;
-        this.deviceRepository = deviceRepository;
     }
 
     public void sendCommand(DeviceAquarium aquarium, String command) throws IOException {
@@ -53,5 +48,9 @@ public class AquariumSingleton {
         if (optional.isEmpty())
             throw new NotFound404Exception("Aquarium doesn't exists.");
         return optional.get();
+    }
+
+    public void save(DeviceAquarium aquarium){
+        deviceAquariumRepository.save(aquarium);
     }
 }

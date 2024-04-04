@@ -10,11 +10,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Constraint(validatedBy = UniqueDeviceNameValidator.class)
-@Target({ElementType.FIELD})
+@Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE,ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-
 public @interface UniqueDeviceName {
-
     String message() default "Device name already exist.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};

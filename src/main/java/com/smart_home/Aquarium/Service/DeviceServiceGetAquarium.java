@@ -9,14 +9,11 @@ import com.smart_home.Aquarium.DTOMapper.DeviceAquariumDTOMapper;
 import com.smart_home.Device.DTOMapper.DeviceDTOMapper;
 import com.smart_home.Device.Enum.DeviceType;
 import com.smart_home.Aquarium.Model.DeviceAquarium;
-import com.smart_home.Aquarium.Repository.DeviceAquariumRepository;
-import com.smart_home.Aquarium.Request.Repository.DeviceRepository;
-import com.smart_home.Exception.NotFound404Exception;
+import com.smart_home.Device.Repository.DeviceRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

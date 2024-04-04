@@ -44,11 +44,8 @@ class UserServiceTest {
     private User user;
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
         user = User.builder()
                 .id(1L)
-                .firstName("Test")
-                .lastName("test")
                 .email("Test@test2.com")
                 .password("password")
                 .pin("1234")
@@ -60,8 +57,6 @@ class UserServiceTest {
     public void userRegistration_shouldSaveUserIntoDataBase(){
         //Given
         UserRegistrationRequest userRegistrationRequest = new UserRegistrationRequest();
-        userRegistrationRequest.setFirstName("Test");
-        userRegistrationRequest.setLastName("Test");
         userRegistrationRequest.setPassword("password");
         userRegistrationRequest.setPassword2("password");
         userRegistrationRequest.setPin("1234");

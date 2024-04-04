@@ -1,0 +1,9 @@
+CREATE TABLE device (
+    id BIGSERIAL NOT NULL,
+    ip VARCHAR(255),
+    name VARCHAR(255),
+    port INTEGER NOT NULL,
+    type VARCHAR(255) CHECK (type IN ('AQUARIUM','STAIRS','TEMPERATURE','SUNBLIND','LIGHT','RFID','BUTTON','LIGHTS','CARD')),
+    user_id BIGINT,
+    PRIMARY KEY (id)
+);

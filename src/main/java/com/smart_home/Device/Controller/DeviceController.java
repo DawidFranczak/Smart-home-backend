@@ -5,6 +5,7 @@ import com.smart_home.Device.Request.AddDeviceRequest;
 import com.smart_home.Device.Service.DeviceServiceAddNewDevice;
 import com.smart_home.Device.Service.DeviceServiceAddRandomDevice;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,11 +31,14 @@ public class DeviceController {
     @PostMapping("add/")
     public ResponseEntity<Void> addNewDevice(
             HttpServletRequest request,
-            @RequestBody AddDeviceRequest form
-        ) throws UnknownHostException {
-
-        deviceServiceAddNewDevice.addNewDevice(request,form);
-        return ResponseEntity.status(HttpStatus.CREATED).body(null);
+            @Valid @RequestBody AddDeviceRequest form
+        ){
+        try {
+            deviceServiceAddNewDevice.addNewDevice(request,form);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (ClassNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("add/random/")
