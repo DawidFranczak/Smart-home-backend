@@ -2,30 +2,29 @@ package com.smart_home.Device.Controller;
 
 
 import com.smart_home.Device.Request.AddDeviceRequest;
-import com.smart_home.Device.Service.DeviceServiceAddNewDevice;
-import com.smart_home.Device.Service.DeviceServiceAddRandomDevice;
+import com.smart_home.Device.Service.AddNewDeviceService;
+import com.smart_home.Device.Service.AddRandomDeviceService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping("api/device/")
 @CrossOrigin
-public class DeviceController {
+public class DeviceAddController {
 
-    private final DeviceServiceAddNewDevice deviceServiceAddNewDevice;
-    private final DeviceServiceAddRandomDevice deviceServiceAddRandomDevice;
+    private final AddNewDeviceService addNewDeviceService;
+    private final AddRandomDeviceService addRandomDeviceService;
 
-    public DeviceController(
-            DeviceServiceAddNewDevice deviceServiceAddNewDevice,
-            DeviceServiceAddRandomDevice deviceServiceAddRandomDevice
+    public DeviceAddController(
+            AddNewDeviceService addNewDeviceService,
+            AddRandomDeviceService addRandomDeviceService
     ) {
-        this.deviceServiceAddNewDevice = deviceServiceAddNewDevice;
-        this.deviceServiceAddRandomDevice = deviceServiceAddRandomDevice;
+        this.addNewDeviceService = addNewDeviceService;
+        this.addRandomDeviceService = addRandomDeviceService;
     }
 
     @PostMapping("add/")
@@ -34,7 +33,7 @@ public class DeviceController {
             @Valid @RequestBody AddDeviceRequest form
         ){
         try {
-            deviceServiceAddNewDevice.addNewDevice(request,form);
+            addNewDeviceService.addNewDevice(request,form);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (ClassNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -43,7 +42,7 @@ public class DeviceController {
 
     @GetMapping("add/random/")
     public ResponseEntity<Void> addRandomDevice(HttpServletRequest request){
-        deviceServiceAddRandomDevice.add(request);
+        addRandomDeviceService.add(request);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 }

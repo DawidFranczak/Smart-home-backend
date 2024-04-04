@@ -17,4 +17,5 @@ public interface DeviceRepository extends JpaRepository<Device, Long> {
     boolean deviceExists(String name, DeviceType type, User user);
 
     List<Device> findByUserAndType(User user, DeviceType type);
+    List<Device> findByUser(User user);
 }

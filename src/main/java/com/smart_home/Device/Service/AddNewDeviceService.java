@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 import java.net.DatagramPacket;
 
 @Service
-public class DeviceServiceAddNewDevice {
+public class AddNewDeviceService {
 
     private final JwtService jwtService;
     private final DeviceFactoryService deviceFactoryService;
     private final DeviceSingleton deviceSingleton;
 
-    public DeviceServiceAddNewDevice(
+    public AddNewDeviceService(
             JwtService jwtService,
             DeviceFactoryService deviceFactoryService,
             DeviceSingleton deviceSingleton

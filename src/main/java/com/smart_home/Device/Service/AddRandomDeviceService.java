@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 import java.net.InetAddress;
 import java.util.Random;
 @Service
-public class DeviceServiceAddRandomDevice {
+public class AddRandomDeviceService {
 
     private final JwtService jwtService;
     private final DeviceAquariumRepository deviceAquariumRepository;
     private final DeviceStairsRepository deviceStairsRepository;
 
-    public DeviceServiceAddRandomDevice(
+    public AddRandomDeviceService(
             JwtService jwtService,
             DeviceAquariumRepository deviceAquariumRepository,
             DeviceStairsRepository deviceStairsRepository
