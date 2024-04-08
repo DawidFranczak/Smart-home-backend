@@ -1,6 +1,6 @@
 --////////////////////////////////////////PORT//////////////////////////////
 INSERT INTO device_settings (settings_key,setting_value)
-SELECT 'aquariumPort','1234'
+SELECT 'aquariumPort','7863'
 WHERE NOT EXISTS (
     SELECT 1 FROM device_settings WHERE settings_key = 'aquariumPort'
 );

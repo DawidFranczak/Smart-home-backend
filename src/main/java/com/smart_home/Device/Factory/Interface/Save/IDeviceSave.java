@@ -1,4 +1,4 @@
-package com.smart_home.Device.Factory.Interface;
+package com.smart_home.Device.Factory.Interface.Save;
 
 import com.smart_home.Authentication.Model.User;
 

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DeviceRepository extends JpaRepository<Device, Long> {
@@ -18,4 +19,6 @@ public interface DeviceRepository extends JpaRepository<Device, Long> {
 
     List<Device> findByUserAndType(User user, DeviceType type);
     List<Device> findByUser(User user);
+
+    Optional<Device> findByIdAndUser(Long id, User user);
 }

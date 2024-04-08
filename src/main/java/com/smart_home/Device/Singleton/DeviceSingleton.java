@@ -1,8 +1,13 @@
 package com.smart_home.Device.Singleton;
 
+import com.smart_home.Authentication.Model.User;
+import com.smart_home.Device.Factory.Service.Delete.DeviceDeleteFactoryService;
+import com.smart_home.Device.Model.Device;
+import com.smart_home.Device.Repository.DeviceRepository;
 import com.smart_home.Device.Repository.DeviceSettingsRepository;
 import com.smart_home.Device.Enum.DeviceType;
 import com.smart_home.Device.Model.DeviceSettings;
+import com.smart_home.Exception.NotFound404Exception;
 import com.smart_home.UDP.UDP;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -17,14 +22,15 @@ public class DeviceSingleton {
 
     private final UDP udp;
     private final DeviceSettingsRepository deviceSettingsRepository;
-
+    private final DeviceRepository deviceRepository;
 
     private DeviceSingleton(
             UDP udp,
-            DeviceSettingsRepository deviceSettingsRepository
-    ){
+            DeviceSettingsRepository deviceSettingsRepository,
+            DeviceRepository deviceRepository, DeviceDeleteFactoryService deviceDeleteFactoryService){
         this.udp = udp;
         this.deviceSettingsRepository = deviceSettingsRepository;
+        this.deviceRepository = deviceRepository;
     }
 
     public DatagramPacket findDeviceInLocalNetwork(DeviceType deviceType) {
@@ -39,6 +45,21 @@ public class DeviceSingleton {
                 return deviceType;
         }
         throw new RuntimeException("Device with this type doesn't exists.");
+    }
+
+    public Device getDevice(Long id, User user){
+        Optional<Device> optional = deviceRepository.findByIdAndUser(id, user);
+        if(optional.isEmpty())
+            throw new NotFound404Exception("Device not found.");
+        return optional.get();
+    }
+
+    public void saveDevice(Device device){
+        deviceRepository.save(device);
+    }
+
+    public void deleteDevice(Device device) {
+        deviceRepository.delete(device);
     }
 
     private String getDeviceAddingPassword(DeviceType type) {

@@ -1,9 +1,9 @@
-package com.smart_home.Device.Factory.Service;
+package com.smart_home.Device.Factory.Service.Save;
 
 import com.smart_home.Device.Repository.DeviceStairsRepository;
 import com.smart_home.Authentication.Model.User;
 import com.smart_home.Device.Enum.DeviceType;
-import com.smart_home.Device.Factory.Interface.IDeviceSave;
+import com.smart_home.Device.Factory.Interface.Save.IDeviceSave;
 import com.smart_home.Device.Model.DeviceStairs;
 import org.springframework.stereotype.Service;
 

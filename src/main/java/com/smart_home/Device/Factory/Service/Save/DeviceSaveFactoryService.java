@@ -1,18 +1,18 @@
-package com.smart_home.Device.Factory.Service;
+package com.smart_home.Device.Factory.Service.Save;
 
 import com.smart_home.Device.Enum.DeviceType;
-import com.smart_home.Device.Factory.Interface.IDeviceFactory;
-import com.smart_home.Device.Factory.Interface.IDeviceSave;
+import com.smart_home.Device.Factory.Interface.Save.IDeviceSaveFactory;
+import com.smart_home.Device.Factory.Interface.Save.IDeviceSave;
 import org.springframework.stereotype.Component;
 
 
 @Component
-public class DeviceFactoryService implements IDeviceFactory {
+public class DeviceSaveFactoryService implements IDeviceSaveFactory {
 
     private final AquariumDeviceSaveService aquariumDeviceSaveService;
     private final StairsDeviceSaveService stairsDeviceSaveService;
 
-    public DeviceFactoryService(
+    public DeviceSaveFactoryService(
             AquariumDeviceSaveService aquariumDeviceSaveService,
             StairsDeviceSaveService stairsDeviceSaveService
     ) {

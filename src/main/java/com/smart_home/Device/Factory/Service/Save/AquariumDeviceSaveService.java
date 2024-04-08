@@ -1,10 +1,10 @@
-package com.smart_home.Device.Factory.Service;
+package com.smart_home.Device.Factory.Service.Save;
 
 import com.smart_home.Aquarium.Model.DeviceAquarium;
 import com.smart_home.Aquarium.Singleton.AquariumSingleton;
 import com.smart_home.Authentication.Model.User;
 import com.smart_home.Device.Enum.DeviceType;
-import com.smart_home.Device.Factory.Interface.IDeviceSave;
+import com.smart_home.Device.Factory.Interface.Save.IDeviceSave;
 import org.springframework.stereotype.Service;
 
 import java.net.DatagramPacket;

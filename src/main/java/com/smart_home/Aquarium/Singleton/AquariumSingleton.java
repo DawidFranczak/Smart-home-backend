@@ -3,6 +3,7 @@ package com.smart_home.Aquarium.Singleton;
 import com.smart_home.Aquarium.Model.DeviceAquarium;
 import com.smart_home.Aquarium.Repository.DeviceAquariumRepository;
 import com.smart_home.Authentication.Model.User;
+import com.smart_home.Device.Model.Device;
 import com.smart_home.Exception.NotFound404Exception;
 import com.smart_home.UDP.UDP;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -30,7 +31,7 @@ public class AquariumSingleton {
     }
 
     public void sendCommand(DeviceAquarium aquarium, String command) throws IOException {
-        udp.send(command, aquarium.getPort(), aquarium.getIp(),40);
+        udp.send(command, aquarium.getPort(), aquarium.getIp(),100);
     }
 
     public boolean checkLightningTime(String timeStart, String timeStop){
@@ -52,5 +53,10 @@ public class AquariumSingleton {
 
     public void save(DeviceAquarium aquarium){
         deviceAquariumRepository.save(aquarium);
+    }
+
+    public void delete(Device device) {
+        DeviceAquarium deviceAquarium = (DeviceAquarium) device;
+        deviceAquariumRepository.delete(deviceAquarium);
     }
 }

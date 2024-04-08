@@ -10,6 +10,6 @@ import java.util.function.Function;
 public class DeviceDTOMapper implements Function <Device, DeviceDTO> {
     @Override
     public DeviceDTO apply(Device device) {
-        return new DeviceDTO(device.getName(), device.getId());
+        return new DeviceDTO(device.getName(), device.getId(), device.getType().name());
     }
 }

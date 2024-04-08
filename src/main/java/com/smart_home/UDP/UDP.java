@@ -44,7 +44,7 @@ public class UDP {
     public DatagramPacket scanLocalHost(String message,int port,int timeoutInMs,String exceptionMessage) {
         for (int i = 2; i < 254; i++) {
             try {
-                return send(message, port, InetAddress.getByName("192.168.0." + i), timeoutInMs);
+                return send(message, port, InetAddress.getByName("192.168.1." + i), timeoutInMs);
             } catch (IOException e) {
                 continue;
             }

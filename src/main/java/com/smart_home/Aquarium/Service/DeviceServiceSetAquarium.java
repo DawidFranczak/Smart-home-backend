@@ -31,9 +31,8 @@ public class DeviceServiceSetAquarium {
     public void setColor(HttpServletRequest request, Long id, String color) throws IOException {
         User user = jwtService.extractUser(request);
         DeviceAquarium aquarium = aquariumSingleton.getAquarium(id, user);
-        aquariumSingleton.sendCommand(aquarium,color.substring(1));
+        aquariumSingleton.sendCommand(aquarium,color);
         saveNewColor(aquarium,color);
-        System.out.println(color);
     }
 
     public void setLedLightningTime(
@@ -68,13 +67,15 @@ public class DeviceServiceSetAquarium {
     public void setMode(HttpServletRequest request, Long id, AquariumModeRequest form) throws IOException {
         User user = jwtService.extractUser(request);
         DeviceAquarium aquarium = aquariumSingleton.getAquarium(id, user);
+        if(form.isMode()) {
+            boolean isFluoTime = aquariumSingleton.checkLightningTime(aquarium.getFluoStart(), aquarium.getFluoStop());
+            aquariumSingleton.sendCommand(aquarium, isFluoTime ? "fluoOn" : "fluoOff");
+            aquarium.setFluoMode(isFluoTime);
 
-        boolean isFluoTime = aquariumSingleton.checkLightningTime(aquarium.getFluoStart(), aquarium.getFluoStop());
-        aquariumSingleton.sendCommand(aquarium, isFluoTime ? "fluoOn" : "fluoOff");
-
-        boolean isLedTime = aquariumSingleton.checkLightningTime(aquarium.getLedStart(), aquarium.getLedStop());
-        aquariumSingleton.sendCommand(aquarium, isLedTime ? "ledOn" : "ledOff");
-
+            boolean isLedTime = aquariumSingleton.checkLightningTime(aquarium.getLedStart(), aquarium.getLedStop());
+            aquariumSingleton.sendCommand(aquarium, isLedTime ? "ledOn" : "ledOff");
+            aquarium.setLedMode(isLedTime);
+        }
         aquarium.setMode(form.isMode());
         deviceAquariumRepository.save(aquarium);
     }

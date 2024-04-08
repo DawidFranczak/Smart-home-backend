@@ -3,8 +3,8 @@ package com.smart_home.Device.Service;
 import com.smart_home.Authentication.Model.User;
 import com.smart_home.Authentication.Service.JwtService;
 import com.smart_home.Device.Enum.DeviceType;
-import com.smart_home.Device.Factory.Interface.IDeviceSave;
-import com.smart_home.Device.Factory.Service.DeviceFactoryService;
+import com.smart_home.Device.Factory.Interface.Save.IDeviceSave;
+import com.smart_home.Device.Factory.Service.Save.DeviceSaveFactoryService;
 import com.smart_home.Device.Request.AddDeviceRequest;
 import com.smart_home.Device.Singleton.DeviceSingleton;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,17 +16,17 @@ import java.net.DatagramPacket;
 public class AddNewDeviceService {
 
     private final JwtService jwtService;
-    private final DeviceFactoryService deviceFactoryService;
+    private final DeviceSaveFactoryService deviceSaveFactoryService;
     private final DeviceSingleton deviceSingleton;
 
     public AddNewDeviceService(
             JwtService jwtService,
-            DeviceFactoryService deviceFactoryService,
+            DeviceSaveFactoryService deviceSaveFactoryService,
             DeviceSingleton deviceSingleton
     ) {
 
         this.jwtService = jwtService;
-        this.deviceFactoryService = deviceFactoryService;
+        this.deviceSaveFactoryService = deviceSaveFactoryService;
         this.deviceSingleton = deviceSingleton;
     }
 
@@ -34,7 +34,7 @@ public class AddNewDeviceService {
         User user = jwtService.extractUser(request);
         DeviceType deviceType = deviceSingleton.getDeviceType(form.getType());
         DatagramPacket deviceInfo = deviceSingleton.findDeviceInLocalNetwork(deviceType);
-        IDeviceSave deviceService = deviceFactoryService.create(deviceType);
+        IDeviceSave deviceService = deviceSaveFactoryService.create(deviceType);
         deviceService.save(user, deviceInfo, form.getName());
     }
 }
